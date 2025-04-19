@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildwechsel mit Button</title>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
 
 <body>
-    <h1>Hello World</h1>
+
+    <div id="bild-container"></div>
+    <button onclick="bildWechsel()">Bild wechseln</button>
+
+    <script>
+        const bilder = [
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg'
+        ];
+
+        let aktuellesBild = 0;
+
+        const container = document.getElementById('bild-container');
+        container.style.backgroundImage = `url('${bilder[aktuellesBild]}')`;
+
+        function bildWechsel() {
+            aktuellesBild = (aktuellesBild + 1) % bilder.length;
+            container.style.backgroundImage = `url('${bilder[aktuellesBild]}')`;
+        }
+    </script>
+
 </body>
 
 </html>
