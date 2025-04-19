@@ -9,9 +9,13 @@
 
 <body>
 
-    <div id="bild-container"></div>
-    <button onclick="bildWechsel()">Bild wechseln</button>
-
+    <div>
+        <div id="bild-container">
+            <img id="bild" src="bild1.jpg" alt="Bild">
+        </div>
+        <br>
+        <button onclick="bildWechsel()">Bild wechseln</button>
+    </div>
     <script>
         const bilder = [
             '1.jpg',
@@ -22,13 +26,12 @@
         ];
 
         let aktuellesBild = 0;
-
-        const container = document.getElementById('bild-container');
-        container.style.backgroundImage = `url('${bilder[aktuellesBild]}')`;
+        const bildElement = document.getElementById('bild');
+        bildElement.src = bilder[0];
 
         function bildWechsel() {
             aktuellesBild = (aktuellesBild + 1) % bilder.length;
-            container.style.backgroundImage = `url('${bilder[aktuellesBild]}')`;
+            bildElement.src = bilder[aktuellesBild];
         }
     </script>
 
